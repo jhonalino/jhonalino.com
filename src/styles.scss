@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Nunito+Sans);
+@import "~bulma/bulma.sass";
+@import "~animate.css/animate.css";
+$family-sans-serif: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+html, body {
+    margin: 0;
+    background: 0;
+    font-family: $family-sans-serif;
+}
+
+
+$is-primary: #FF6347;
+$is-secondary: #BCF248;
