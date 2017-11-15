@@ -1,58 +1,112 @@
+$is-primary: #FF6347;
+$is-secondary: #BCF248;
 .navbar {
     margin-top: 2em;
     .navbar-item {
-        font-weight: bold;
+        margin: auto;
+        font-weight: 300;
+        color: $is-primary;
+        transition: transform .4s;
+        &:hover {
+            transition: transform .4s;
+            transform: scale(1.1);
+            color: black;
+            background-color: transparent;
+        }
     }
-
     .is-brand {
         font-size: 4em;
-        text-shadow: 1px 1px 10px rgba(75, 68, 68, 0.562);
     }
-    $is-primary: #FF6347;
-    $is-secondary: #BCF248;
-    .is-primary {
+    #j {
         color: $is-primary;
+        margin-right: -.2em;
     }
-
-    .is-secondary {
+    #a {
         color: $is-secondary;
         margin-top: .5em;
     }
 }
 
-
 .hero-body {
-       .image img{
+    .image {
+        img {
+            background: transparent;
             border-radius: 100%;
             width: 256px;
             height: 256px;
-            border: 5px solid #FF6347;
+            border: 5px solid #{$is-primary};
             transition: border-color .3s, transform .3s;
+            outline: 1px solid transparent; //fixes border artifact
             &:hover {
                 transition: border-color .3s, transform .3s;
-                border-color: #BCF248;
+                border-color: $is-secondary;
                 transform: scale(1.1) rotate(6deg);
+                cursor: url('../assets/thumbsup.png'), auto;
             }
-       }
-       .title {
-           margin-top: 0.5em;
-           font-size: 4em;
-           cursor: default;
-
-           .space {
-               margin-left: 0.5em;
-           }
-
-           .spring {
-               display: inline-block; //so I can change the transform of this span
-               margin: -7px;
-
-               transition: color .3s;
-
-               &:hover {
-                   transition: color .1s;
-                   color: #BCF248;
-               }
-           }
         }
+    }
+    .title {
+        margin-top: 0.5em;
+        font-size: 4em;
+        cursor: default;
+        span {
+            display: inline-block; //so I can change the transform of this span
+        }
+        .space {
+            margin-left: 0.3em;
+        }
+        .spring {
+            margin: -7px;
+            transition: color .5s;
+            &:hover {
+                transition: color .1s;
+                color: $is-primary;
+            }
+        }
+    }
+    .is-secondary {
+        transition: color 1s;
+        color: $is-secondary;
+    }
+    .is-white {
+        color: white;
+    }
+    .col1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+footer {
+    .row1 {
+        display: flex;
+        justify-content: space-around;
+        .social-media {
+            .link-list {
+                a {
+                    font-size: 2em;
+                    color: $is-primary;
+                    font-weight: 300;
+                    margin: auto .3em auto .3em;
+                }
+            }
+        }
+        .credits {
+            font-size: .8em;
+            color: black;
+            text-align: right;
+            a {
+                color: $is-primary;
+            }
+        }
+    }
+    .row2 {
+        text-align: center;
+        font-weight: 300;
+        p {
+            margin: 1em;
+            color: black;
+        }
+    }
 }
