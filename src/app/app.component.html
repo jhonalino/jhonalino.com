@@ -28,7 +28,7 @@
         <div class="columns">
           <div class="column col1">
             <figure class="image">
-              <img src="assets/jhon2.jpg" (mouseenter)="triggered()" (mouseleave)="untrigger()">
+              <img src="assets/jhon2.jpg" (click)="triggered()" (mouseleave)="untrigger()">
             </figure>
           </div>
           <div class="column">
@@ -79,16 +79,17 @@
       </div>
     </div>
   </section>
-  <section class="section">
-    <div class="container">
+  <section class="section is-large">
+    <div class="">
       <h1 class="title">Featured work experience</h1>
       <div class="columns is-multiline">
-        <div class="column is-half" *ngFor="let a of arr">
-          <div class="card">
+        <div class="column {{a.colSpan}}" *ngFor="let a of arr">
+          <div class="card project-card">
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-square">
                 <img src="{{a.imgUrl}}" alt="Placeholder image">
               </figure>
+              <div class="overlay"></div>
             </div>
             <div class="card-content">
               <div class="media">
@@ -130,11 +131,12 @@
       <a target="_blank" href="https://marcbruederlin.github.io/particles.js/">particle.js </a>,
       <a target="_blank" href="https://daneden.github.io/animate.css/">animate.css</a>,
       <a target="_blank" href="https://angular.io">angular</a>,
-      <a target="_blank" href="http://fontawesome.io/">fontawesome</a>, thumbs up icon
+      <a target="_blank" href="http://fontawesome.io/">fontawesome</a>
+      <!-- <a target="_blank" href="http://fontawesome.io/">fontawesome</a>, thumbs up icon
       <br> made by
       <a target="_blank" href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from
       <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
-      <a target="_blank" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      <a target="_blank" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> -->
     </div>
   </div>
   <div class="row2">

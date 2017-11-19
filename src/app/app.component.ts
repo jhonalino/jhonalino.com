@@ -9,25 +9,17 @@ export class AppComponent implements OnInit {
   title = 'app';
   arr = [
     {
-      title: "angma",
-      subtitle: "bulma components for angular",
-      imgUrl: "https://picsum.photos/400/300"
+      title: "Neoboardapp",
+      subtitle: "Front end developer volunteer at neoboard.",
+      imgUrl: "../assets/neoboard-screengrab.png",
+      colSpan: 'is-half'
+      
     },
     {
-      title: "ja-camera",
-      subtitle: "web camera capture component for angular based on webrtc",
-      imgUrl: "https://picsum.photos/400/300"
-    },
-    {
-      title: "neoboardapp.com",
-      subtitle: "Front end dev volunteer at neoboard",
-      imgUrl: "https://picsum.photos/400/300"
-
-    },
-    {
-      title: "barcodexchange.com",
-      subtitle: "Front end dev at barcodexchange mobile solutions",
-      imgUrl: "https://picsum.photos/400/300"
+      title: "Barcodexchange",
+      subtitle: "Front end deveveloper at barcodexchange mobile solutions.",
+      imgUrl: "../assets/barcodexchange-screengrab.png",
+      colSpan: 'is-half'
     }
   ]
 
