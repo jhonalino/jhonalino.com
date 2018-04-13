@@ -60,7 +60,7 @@
               <span class="spring">u</span>
               <span class="spring">y</span>
               <span class="spring">.</span>
-              
+
               <!-- <span class="spring">g</span>
               <span class="spring">e/span>
               <span class="spring">v</span>
@@ -84,22 +84,24 @@
       <h1 class="title">Featured work experience</h1>
       <div class="columns is-multiline">
         <div class="column {{a.colSpan}}" *ngFor="let a of arr">
-          <div class="card project-card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="{{a.imgUrl}}" alt="Placeholder image">
-              </figure>
-              <div class="overlay"></div>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4">{{a.title}}</p>
-                  <p class="subtitle is-6">{{a.subtitle}}</p>
+          <a href="{{a.url}}" target="_blank">
+            <div class="card project-card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="{{a.imgUrl}}" alt="Placeholder image">
+                </figure>
+                <div class="overlay"></div>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">{{a.title}}</p>
+                    <p class="subtitle is-6">{{a.subtitle}}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -140,7 +142,7 @@
     </div>
   </div>
   <div class="row2">
-    <p>© 2017 Jhon Alino </p>
+    <p>© 2018 Jhon Alino </p>
   </div>
 </footer>
 

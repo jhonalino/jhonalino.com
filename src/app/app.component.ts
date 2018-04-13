@@ -12,14 +12,22 @@ export class AppComponent implements OnInit {
       title: "Neoboardapp",
       subtitle: "Front end developer volunteer at neoboard.",
       imgUrl: "../assets/neoboard-screengrab.png",
-      colSpan: 'is-half'
-      
+      colSpan: 'is-one-third',
+      url: 'https://neoboardapp.com'
     },
     {
       title: "Barcodexchange",
       subtitle: "Front end deveveloper at barcodexchange mobile solutions.",
       imgUrl: "../assets/barcodexchange-screengrab.png",
-      colSpan: 'is-half'
+      colSpan: 'is-one-third',
+      url: 'https://barcodexchange.com'
+    },
+    {
+      title: "Yourqrcafe",
+      subtitle: "Generate unlimited static QR code for FREE",
+      imgUrl: "../assets/yourqrcafe.png",
+      colSpan: 'is-one-third',
+      url: 'https://yourqrcafe.com'
     }
   ]
 
