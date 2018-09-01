@@ -1,59 +1,184 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import jhonLandscapeImg from '../assets/images/jhon_landscape.jpg';
+import LinkedinIcon from '../assets/images/linkedin.svg';
+import GithubIcon from '../assets/images/github.svg';
 
-const WelcomeSection = styled.section`
-	background: linear-gradient(rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0)), url(${jhonLandscapeImg});
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 79% center;
-	color: white;
-	font-size: 2em;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-end;
-	flex-flow: column nowrap;
-	height: 100vh;
-	font-weight: bold;
-	text-align: left;
+const Nav = styled.div`
+	height: 6em;
 	padding: 1em;
-	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
 
-	p {
+const NavBrand = styled.div`
+	h1,
+	h2 {
+		font-size: 1.5em;
 		margin: 0;
-		margin-bottom: 0.3em;
+	}
+
+	h2 {
+		font-weight: lighter;
+	}
+`;
+const NavList = styled.ul``;
+const NavItem = styled.li``;
+
+const portfolioItems = [
+	'peaky finder',
+	'mboutique',
+	'food nation',
+	'display boards',
+	'yourqrcafe',
+	'barcodexchange',
+	'calculator',
+	'frequency analyzer'
+];
+
+const Container = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const Grid = styled.div`
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+`;
+
+const GridItem = styled.div`
+	margin: 1em 0;
+	img {
+		width: 100%;
 	}
 `;
 
-const Button = styled.button`
-	background-color: #ffdd00;
-	color: #1b1a26;
-	padding: 0.8em;
-	font-size: 0.6em;
-	border: none;
-	font-family: 'Rubik', sans-serif;
-	text-transform: uppercase;
-	width: 100%;
-	margin-top: 1em;
-	align-self: center;
+const BurgerMenu = styled.div`
+	height: 1em;
+	width: 2em;
+	box-sizing: border-box;
+	position: relative;
+	transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transform: ${props => (props.close ? `rotateZ(-180deg)` : `rotateZ(0)`)};
+
+	span {
+		height: 0.12em;
+		right: 0;
+
+		background-color: black;
+		display: block;
+		position: absolute;
+
+		transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+			top 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+
+	span:nth-child(1) {
+		top: 0;
+		width: 100%;
+	}
+
+	span:nth-child(2) {
+		top: 50%;
+		width: 50%;
+	}
+
+	span:nth-child(3) {
+		width: 85%;
+		top: 100%;
+	}
+`;
+
+// .nav .burger-menu.close {
+// 	transform: rotateZ(-180deg);
+// }
+
+// .nav .burger-menu.close span {
+// 	width: 100%;
+// }
+
+// .nav .burger-menu.close span:nth-child(1) {
+// 	transform: rotateZ(45deg);
+// 	top: 50%;
+// }
+
+// .nav .burger-menu.close span:nth-child(2) {
+// 	transform: scale(0);
+// }
+
+// .nav .burger-menu.close span:nth-child(3) {
+// 	transform: rotateZ(-45deg);
+// 	top: 50%;
+// }
+
+const Footer = styled.footer`
+	font-size: 0.8em;
+	font-weight: lighter;
+	padding: 2em;
+	color: gray;
+
+	p:first-child {
+		a {
+			text-decoration: none;
+			color: black;
+			font-size: 2em;
+			margin-right: .5em;
+		}
+	}
+`;
+
+const Icon = styled.img`
+	width: 25px;
 `;
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<WelcomeSection>
-					<div>
-						<p>Hello, I'm Jhon.</p>
-						<p style={{ fontSize: '.5em', fontWeight: 'lighter' }}>Frontend Developer</p>
-					</div>
-					<Button>check my portfolio</Button>
-				</WelcomeSection>
-				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, voluptates sequi aspernatur ratione quod quia
-					minima doloribus rerum sapiente, nemo porro libero architecto eius natus at deserunt. Ad tempora accusamus
-					nobis hic optio commodi et quasi! Doloribus repudiandae porro sint!
-				</p>
+				<Nav>
+					<NavBrand>
+						<h1>Jhon Alino</h1>
+						<h2>Front End</h2>
+						<h2>Developer</h2>
+					</NavBrand>
+
+					<BurgerMenu>
+						<span />
+						<span />
+						<span />
+					</BurgerMenu>
+					{/* <NavList>
+						<NavItem>Portfolio</NavItem>
+						<NavItem>Technologies</NavItem>
+						<NavItem>About</NavItem>
+						<NavItem>Contact</NavItem>
+					</NavList> */}
+				</Nav>
+				<Container>
+					<Grid>
+						{portfolioItems.map(item => (
+							<GridItem>
+								<img src={`https://picsum.photos/600/430/?random`} />
+							</GridItem>
+						))}
+					</Grid>
+				</Container>
+				<Footer>
+					<p>
+						<a href="">
+							<Icon src={LinkedinIcon} alt="linkedin icon" />
+						</a>
+						<a href="">
+							<Icon src={GithubIcon} alt="github icon" />
+						</a>
+						<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
+					</p>
+					<p>Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is Rubik.</p>
+					<p>Jhon Alino © 2018</p>
+				</Footer>
 			</div>
 		);
 	}
