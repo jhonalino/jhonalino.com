@@ -8,25 +8,47 @@ import Portfolio from './Portfolio';
 const Nav = styled.div`
 	height: 8em;
 	margin-top: 2em;
-	padding: 1em;
+	padding: 1em 2em;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 `;
 
 const NavBrand = styled.div`
+	h1 {
+		color: #fd297b;
+	}
+
 	h1,
 	h2 {
 		margin: 0;
 		font-size: 2em;
 	}
-
-	h2 {
-		font-weight: lighter;
-	}
 `;
-const NavList = styled.ul``;
-const NavItem = styled.li``;
+const NavList = styled.ul`
+	list-style-type: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	width: 100%;
+
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	transition: transform 0.4s ease;
+	transform: ${props => (props.close ? 'translateX(0%)' : 'translate(100%)')};
+`;
+const NavItem = styled.li`
+	font-size: 2em;
+	margin-bottom: 1em;
+	font-weight: bold;
+	color: #fd297b;
+`;
 
 const Container = styled.div`
 	display: flex;
@@ -41,11 +63,12 @@ const Wrapper = styled.div`
 const Main = styled.main``;
 
 const BurgerMenu = styled.div`
+	z-index: 1;
 	height: 1em;
 	width: 2em;
 	box-sizing: border-box;
 	position: relative;
-	transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: transform 0.4s ease;
 	transform: ${props => (props.close ? `rotateZ(-180deg)` : `rotateZ(0)`)};
 
 	span {
@@ -56,7 +79,7 @@ const BurgerMenu = styled.div`
 		display: block;
 		position: absolute;
 
-		transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: transform 0.4s ease, top 0.4s ease;
 	}
 
 	span:nth-child(1) {
@@ -72,7 +95,7 @@ const BurgerMenu = styled.div`
 	}
 
 	span:nth-child(3) {
-		transform: ${props => (props.close ? ' rotateZ(-45deg)' : 'initial')};
+		transform: ${props => (props.close ? 'rotateZ(-45deg)' : 'initial')};
 		top: ${props => (props.close ? '50%' : '100%')};
 		width: ${props => (props.close ? ' 100%' : '85%')};
 	}
@@ -121,12 +144,13 @@ class App extends Component {
 							<span />
 							<span />
 						</BurgerMenu>
-						{/* <NavList>
-						<NavItem>Portfolio</NavItem>
-						<NavItem>Technologies</NavItem>
-						<NavItem>About</NavItem>
-						<NavItem>Contact</NavItem>
-					</NavList> */}
+
+						<NavList close={this.state.isBurgerClose}>
+							<NavItem>Portfolio</NavItem>
+							<NavItem>Technologies</NavItem>
+							<NavItem>About</NavItem>
+							<NavItem>Contact</NavItem>
+						</NavList>
 					</Nav>
 					<Main>
 						<Router>
@@ -144,8 +168,8 @@ class App extends Component {
 							<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
 						</p>
 						<p>
-							Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is Rubik.
-							Inspired by jgog.in
+							Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is
+							Montserrat. Inspired by jgog.in
 						</p>
 						<p>Jhon Alino © 2018</p>
 					</Footer>
