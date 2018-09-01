@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import LinkedinIcon from '../assets/images/linkedin.svg';
 import GithubIcon from '../assets/images/github.svg';
+import Portfolio from './Portfolio';
 
 const Nav = styled.div`
-	height: 6em;
+	height: 8em;
+	margin-top: 2em;
 	padding: 1em;
 	display: flex;
 	justify-content: space-between;
@@ -14,8 +17,8 @@ const Nav = styled.div`
 const NavBrand = styled.div`
 	h1,
 	h2 {
-		font-size: 1.5em;
 		margin: 0;
+		font-size: 2em;
 	}
 
 	h2 {
@@ -25,36 +28,17 @@ const NavBrand = styled.div`
 const NavList = styled.ul``;
 const NavItem = styled.li``;
 
-const portfolioItems = [
-	'peaky finder',
-	'mboutique',
-	'food nation',
-	'display boards',
-	'yourqrcafe',
-	'barcodexchange',
-	'calculator',
-	'frequency analyzer'
-];
-
 const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 `;
 
-const Grid = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-items: center;
+const Wrapper = styled.div`
+	max-width: 1300px;
 `;
 
-const GridItem = styled.div`
-	margin: 1em 0;
-	img {
-		width: 100%;
-	}
-`;
+const Main = styled.main``;
 
 const BurgerMenu = styled.div`
 	height: 1em;
@@ -72,47 +56,27 @@ const BurgerMenu = styled.div`
 		display: block;
 		position: absolute;
 
-		transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-			top 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 
 	span:nth-child(1) {
-		top: 0;
+		transform: ${props => (props.close ? ' rotateZ(45deg)' : 'initial')};
+		top: ${props => (props.close ? '50%' : '0')};
 		width: 100%;
 	}
 
 	span:nth-child(2) {
+		transform: ${props => (props.close ? 'scale(0)' : 'initial')};
 		top: 50%;
-		width: 50%;
+		width: 65%;
 	}
 
 	span:nth-child(3) {
-		width: 85%;
-		top: 100%;
+		transform: ${props => (props.close ? ' rotateZ(-45deg)' : 'initial')};
+		top: ${props => (props.close ? '50%' : '100%')};
+		width: ${props => (props.close ? ' 100%' : '85%')};
 	}
 `;
-
-// .nav .burger-menu.close {
-// 	transform: rotateZ(-180deg);
-// }
-
-// .nav .burger-menu.close span {
-// 	width: 100%;
-// }
-
-// .nav .burger-menu.close span:nth-child(1) {
-// 	transform: rotateZ(45deg);
-// 	top: 50%;
-// }
-
-// .nav .burger-menu.close span:nth-child(2) {
-// 	transform: scale(0);
-// }
-
-// .nav .burger-menu.close span:nth-child(3) {
-// 	transform: rotateZ(-45deg);
-// 	top: 50%;
-// }
 
 const Footer = styled.footer`
 	font-size: 0.8em;
@@ -125,7 +89,7 @@ const Footer = styled.footer`
 			text-decoration: none;
 			color: black;
 			font-size: 2em;
-			margin-right: .5em;
+			margin-right: 0.5em;
 		}
 	}
 `;
@@ -135,51 +99,58 @@ const Icon = styled.img`
 `;
 
 class App extends Component {
+	state = {
+		isBurgerClose: false
+	};
 	render() {
 		return (
-			<div className="App">
-				<Nav>
-					<NavBrand>
-						<h1>Jhon Alino</h1>
-						<h2>Front End</h2>
-						<h2>Developer</h2>
-					</NavBrand>
+			<Container>
+				<Wrapper>
+					<Nav>
+						<NavBrand>
+							<h1>Jhon Alino</h1>
+							<h2>Front End</h2>
+							<h2>Developer</h2>
+						</NavBrand>
 
-					<BurgerMenu>
-						<span />
-						<span />
-						<span />
-					</BurgerMenu>
-					{/* <NavList>
+						<BurgerMenu
+							close={this.state.isBurgerClose}
+							onClick={() => this.setState({ isBurgerClose: !this.state.isBurgerClose })}
+						>
+							<span />
+							<span />
+							<span />
+						</BurgerMenu>
+						{/* <NavList>
 						<NavItem>Portfolio</NavItem>
 						<NavItem>Technologies</NavItem>
 						<NavItem>About</NavItem>
 						<NavItem>Contact</NavItem>
 					</NavList> */}
-				</Nav>
-				<Container>
-					<Grid>
-						{portfolioItems.map(item => (
-							<GridItem>
-								<img src={`https://picsum.photos/600/430/?random`} />
-							</GridItem>
-						))}
-					</Grid>
-				</Container>
-				<Footer>
-					<p>
-						<a href="">
-							<Icon src={LinkedinIcon} alt="linkedin icon" />
-						</a>
-						<a href="">
-							<Icon src={GithubIcon} alt="github icon" />
-						</a>
-						<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
-					</p>
-					<p>Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is Rubik.</p>
-					<p>Jhon Alino © 2018</p>
-				</Footer>
-			</div>
+					</Nav>
+					<Main>
+						<Router>
+							<Route exact path="/" component={Portfolio} />
+						</Router>
+					</Main>
+					<Footer>
+						<p>
+							<a href="">
+								<Icon src={LinkedinIcon} alt="linkedin icon" />
+							</a>
+							<a href="">
+								<Icon src={GithubIcon} alt="github icon" />
+							</a>
+							<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
+						</p>
+						<p>
+							Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is Rubik.
+							Inspired by jgog.in
+						</p>
+						<p>Jhon Alino © 2018</p>
+					</Footer>
+				</Wrapper>
+			</Container>
 		);
 	}
 }
