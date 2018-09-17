@@ -31,7 +31,7 @@ const NavBrand = styled.div`
 	}
 `;
 const NavList = styled.ul`
-	list-style-type: none;
+	/* list-style-type: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -39,41 +39,45 @@ const NavList = styled.ul`
 	margin: 0;
 	height: 100vh;
 	width: 100%;
-	z-index: 1;
+	z-index: 1; */
 	display: flex;
-	flex-flow: column nowrap;
+	/* flex-flow: column nowrap; */
 	align-items: center;
 	justify-content: center;
-	background-color: white;
-	transition: transform 0.4s ease;
-	transform: ${props => (props.close ? 'translateX(0%)' : 'translate(100%)')};
+	/* background-color: white; */
+	/* transition: transform 0.4s ease; */
+	/* transform: ${props => (props.close ? 'translateX(0%)' : 'translate(100%)')}; */
 
-	@media (min-width: 700px) {
+		width: auto;
+		transform: none;
+		flex-flow: row wrap;
+		height: auto;
+		align-self: flex-end;
+	/* @media (min-width: 700px) {
 		position: static;
 		width: auto;
 		transform: none;
 		flex-flow: row wrap;
 		height: auto;
 		align-self: flex-end;
-	}
+	} */
 `;
-const NavItem = styled(NavLink)`
-	margin-bottom: 1em;
+// const NavItem = styled(NavLink)`
+// 	margin-bottom: 0;
+// 	margin-right: 1em;
+// 	font-size: 1em;
+// 	font-weight: bold;
+// 	text-decoration: none;
+// 	color: #fd297b;
+// `;
 
-	@media (min-width: 700px) {
-		margin-bottom: 0;
-		margin-right: 1em;
-		font-size: 1em;
-	}
-
-	font-size: 2em;
+const NavItem = styled.a`
+	margin-bottom: 0;
+	margin-right: 1em;
+	font-size: 1em;
 	font-weight: bold;
 	text-decoration: none;
-	color: black;
-
-	&.active {
-		color: #fd297b;
-	}
+	color: #fd297b;
 `;
 
 const Container = styled.div`
@@ -165,12 +169,12 @@ class App extends Component {
 		this.targetElement = this.myRef;
 	}
 
-	handleBurgerToggle = () => {
-		this.setState(
-			{ sideBarOpen: !this.state.sideBarOpen },
-			() => (this.state.sideBarOpen ? disableBodyScroll(this.myRef) : enableBodyScroll(this.myRef))
-		);
-	};
+	// handleBurgerToggle = () => {
+	// 	this.setState(
+	// 		{ sideBarOpen: !this.state.sideBarOpen },
+	// 		() => (this.state.sideBarOpen ? disableBodyScroll(this.myRef) : enableBodyScroll(this.myRef))
+	// 	);
+	// };
 
 	render() {
 		return (
@@ -184,14 +188,14 @@ class App extends Component {
 								<h2>Developer</h2>
 							</NavBrand>
 
-							<BurgerMenu close={this.state.sideBarOpen} onClick={this.handleBurgerToggle}>
+							{/* <BurgerMenu close={this.state.sideBarOpen} onClick={this.handleBurgerToggle}>
 								<span />
 								<span />
 								<span />
-							</BurgerMenu>
+							</BurgerMenu> */}
 
 							<NavList close={this.state.sideBarOpen} ref={this.myRef}>
-								<NavItem exact to="/" onClick={this.handleBurgerToggle}>
+								{/* <NavItem exact to="/" onClick={this.handleBurgerToggle}>
 									Portfolio
 								</NavItem>
 								<NavItem to="/Technologies" onClick={this.handleBurgerToggle}>
@@ -202,22 +206,25 @@ class App extends Component {
 								</NavItem>
 								<NavItem to="/Contact" onClick={this.handleBurgerToggle}>
 									Contact
+								</NavItem> */}
+								<NavItem href={process.env.PUBLIC_URL + '/jhon_resume.pdf'} target="_blank">
+									Résumé
 								</NavItem>
 							</NavList>
 						</Nav>
 						<Main>
 							<Route exact path="/" component={Portfolio} />
-							<Route path="/Application" component={Application} />
+							{/* <Route path="/Application" component={Application} />
 							<Route path="/Technologies" component={Technologies} />
 							<Route path="/About" component={About} />
-							<Route path="/Contact" component={Contact} />
+							<Route path="/Contact" component={Contact} /> */}
 						</Main>
 						<Footer>
 							<p>
-								<a href="">
+								<a href="https://www.linkedin.com/in/jhonalino/" target="_blank">
 									<Icon src={LinkedinIcon} alt="linkedin icon" />
 								</a>
-								<a href="">
+								<a href="https://github.com/jhonalino" target="_blank">
 									<Icon src={GithubIcon} alt="github icon" />
 								</a>
 								<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
