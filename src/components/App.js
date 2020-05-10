@@ -207,8 +207,8 @@ class App extends Component {
 								<NavItem to="/Contact" onClick={this.handleBurgerToggle}>
 									Contact
 								</NavItem> */}
-								<NavItem href={process.env.PUBLIC_URL + '/jhon_resume.pdf'} target="_blank">
-									Résumé
+								 <NavItem href={'https://javascriptjhon.com/'} target="_blank">
+									BLOG
 								</NavItem>
 							</NavList>
 						</Nav>

@@ -15,6 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "firebase deploy",
+    "login": "firebase login",
+    "list": "firebase list",
+    "fb": "firebase"
+  },
+  "devDependencies": {
+    "firebase-tools": "^6.5.1"
   }
 }
