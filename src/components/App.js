@@ -227,7 +227,7 @@ class App extends Component {
 								<a href="https://github.com/jhonalino" target="_blank">
 									<Icon src={GithubIcon} alt="github icon" />
 								</a>
-								<a href="mailto:hello@jhonalino.com">hello@jhonalino.com</a>
+								<a href="mailto:hellojhonalino@gmail.com">hellojhonalino@gmail.com</a>
 							</p>
 							<p>
 								Brewed with ♥ using React, Simple Icons and Visual Studio Code. Typeface is
